@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Play Spotify</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #start-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    #start-screen button {
+      margin-top: 20px;
+      padding: 15px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 30px;
+      background-color: #1DB954;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #start-screen button:hover {
+      background-color: #1ed760;
+    }
+  </style>
+</head>
+<body style="display: none;">
+
+<!-- Ekran startowy -->
+<div id="start-screen">
+  <h1>Naciśnij &lt;3</h1>
+  <button onclick="startExperience()">Zaczynamy</button>
+</div>
+
+<!-- Muzyka w tle -->
+<audio id="bg-music" src="birds.mp3" loop></audio>
+
+<script>
+  function startExperience() {
+    document.getElementById("start-screen").style.display = "none";
+    document.body.style.display = "block";
+    document.getElementById("bg-music").play();
+  }
+
+  // Serduszka (od razu, żeby pojawiały się na tle)
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDelay = Math.random() * 10 + 's';
+    heart.style.opacity = Math.random();
+    heart.style.scale = Math.random() * 1.5 + 0.5;
+    document.body.appendChild(heart);
+  }
+</script>
+
+<!-- Oryginalna zawartość strony -->
+<div class="container">
+  <h1>😍Kliknij myszko </h1>
+  <button class="play-button" onclick="window.open('https://www.youtube.com/watch?v=zxy7ZkfBpZY', '_blank')">▶️ Play</button>
+
+  <div class="text-section">
+    <h2>❤️ Kocham cię </h2>
+    <p>Kochana aurelciu, przede wszystkim chciałbym pogratulować ci skończenia szkoły która była dla ciebie bardzo stresująca zawsze wiedziałem że sobie poradzisz [...] jesteś wspaniałą dziewczyną na całym świecie kocham cię i życzę nam jak najlepiej jeszcze raz kocham cię myszko!</p>
+  </div>
+
+  <div class="image-section">
+    <h2>❤️To my słoneczko</h2>
+    <img src="https://i.pinimg.com/736x/0b/72/7d/0b727d01ab308cd8426f47399392e25b.jpg" alt="Obrazek 1">
+    <img src="https://i.pinimg.com/474x/0a/a2/29/0aa2293845e4e5da48f4e522e501458d.jpg" alt="Obrazek 2" style="margin-top: 20px;">
+  </div>
+</div>
+</body>
+</html>
